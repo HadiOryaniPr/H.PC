@@ -2,8 +2,7 @@
 
     "scripts": {
 
-        "watch": "npx tailwindcss -i ./assets/css/index.css -o ./src/css/main.css --watch",
-        "build": "npx tailwindcss -i ./assets/css/index.css -o ./src/css/build.css --minify"
+        "watch": "npx tailwindcss -i ./assets/css/index.css -o ./src/css/main.css --watch"
 
     },
 
