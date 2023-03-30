@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>HPC | اِچ پی سی</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <style>
+         :root {
+            --Primary-Color: #2cbca9;
+        }
+        
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: #fff;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background-color: #fff;
+        }
+        
+        .swiper-scrollbar {
+            background-color: #fff;
+        }
+        
+        .swiper {
+            border-radius: 8px;
+        }
+        
+        .chat-tem {
+            width: 300px;
+            height: 450px;
+        }
+        
+        .chat-wrapper {
+            position: fixed;
+            bottom: 70px;
+            right: 100px;
+            z-index: 10;
+        }
+        
+        .chat-container {
+            height: 100px;
+        }
+        
+        @media (min-width: 768px) {
+            .swiper-1 {
+                width: 80%;
+            }
+            .main-container {
+                margin-top: 8rem;
+            }
+            .aside-bar {
+                width: 30%;
+            }
+            .swiper-middle {
+                width: calc(100% - 15rem);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .swiper-1 {
+                width: 100%;
+            }
+            .swiper-button-prev,
+            .swiper-button-next {
+                display: none;
+            }
+            .main-container {
+                margin-top: 5rem;
+            }
+            .swiper-middle {
+                width: 80%;
+            }
+            .conten {
+                width: 100%;
+                align-items: center;
+            }
+            .chat-wrapper {
+                position: fixed;
+                width: calc(350px - 2rem);
+                top: 50px;
+                right: 10px;
+                z-index: 10;
+                margin: 6rem 0;
+            }
+            .chat-tem {
+                width: 100%;
+                height: 150px;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="font-nahid dark:bg-gray-900">
+
+
+    <!-- md: navbar -->
+    <header class="bg-gray-100 z-50  border-b-2 fixed top-0 w-full border-gray-200 dark:bg-gray-900">
+        <div class="flex justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
+            <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+                <div class="container flex flex-wrap items-center justify-between mx-auto">
+                    <a href="#" class="flex items-center">
+                        <img style="width: 160px; height: 50px;" src="./../assets/images/logo/1.png" alt="hpc Logo" />
+                    </a>
+
+
+                    <div class="flex md:hidden items-center justify-center align-middle gap-5">
+                        <div class="flex md:hidden items-center md:order-2">
+                            <button type="button" class="flex ml-2 text-sm rounded-full md:mr-0 focus:ring-2 focus:ring-Primary dark:focus:ring-Primary" id="user-menu-button-1" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                              <img class="w-8 h-8 border rounded-full" src="./../assets/images/avatar/icons8-customer-64.png" alt="user photo">
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div class="z-50 hidden my-5 text-sm list-none border bg-gray-50 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                                <ul class="py-2 space-y-2 divide-y-2 divide-gray-100 " aria-labelledby="user-menu-button">
+                                    <li>
+                                        <a href="#" class="block font-semibold px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">ثبت نام</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block font-semibold px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">ورود</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <div class="flex items-center justify-center md:order-2">
+                                <button type="button" class="flex ml-2 text-sm rounded-full md:mr-0" id="user-dropdown" aria-expanded="false" data-dropdown-toggle="user-dropdown-3" data-dropdown-placement="bottom">
+                                  <img class="w-6" src="./../assets/images/avatar/icons8-paint-roller-96.png" alt="user photo">
+                                </button>
+                                <!-- Dropdown menu -->
+                                <div class="z-50 hidden my-5 px-3 py-2 text-sm list-none border bg-gray-50 rounded-lg shadow dark:bg-gray-300 dark:divide-gray-600" id="user-dropdown-3">
+                                    <ul class="py-2 flex flex-col justify-center items-center space-y-2 divide-y-2 divide-gray-400" aria-labelledby="user-menu-buttn">
+                                        <li>
+                                            <img class="w-6 cursor-pointer dark-icon" src="./../assets/images/avatar/icons8-moon-and-stars-90.png" alt="">
+                                        </li>
+                                        <li>
+                                            <img class="w-6 cursor-pointer mt-2 light-icon" src="./../assets/images/avatar/icons8-sun-96.png" alt="">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="menu" class="z-50 items-center hidden justify-between  w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                        <ul class="flex flex-col md:justify-center md:p-0 p-5 items-center border border-gray-100 rounded-lg md:flex-row gap-5 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-900 md:dark:bg-gray-900 dark:border-gray-700">
+                            <li>
+                                <a href="#" class="block font-semibold text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-Primary md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">چرا اِچ پی سی</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block font-semibold text-gray-700 rounded  md:dark:hover:text-white dark:text-gray-400 md:hover:text-Primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">راهنمای خرید</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block font-semibold text-gray-700 rounded  md:dark:hover:text-white dark:text-gray-400 md:hover:text-Primary  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">شرایط گارانتی</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block font-semibold text-gray-700 rounded  md:dark:hover:text-white dark:text-gray-400  md:hover:text-Primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">شرایط اقساطی</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block p-2 bg-Primary text-white font-bold rounded md:hover:text-white dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">ایزی پی سی</a>
+                            </li>
+                            <div class="hidden md:flex items-center justify-center gap-5">
+                                <div class="hidden md:flex items-center md:order-2">
+                                    <button type="button" class="flex text-sm rounded-full md:mr-0 focus:ring-2 focus:ring-Primary dark:focus:ring-Primary" id="user-dropdown" aria-expanded="false" data-dropdown-toggle="user-dropdown-2" data-dropdown-placement="bottom">
+                                      <img class="w-8 h-8 borderrounded-full" src="./../assets/images/avatar/icons8-customer-64.png" alt="user photo">
+                                    </button>
+                                    <!-- Dropdown menu -->
+                                    <div class="z-50 hidden my-5 text-sm list-none border bg-gray-50 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown-2">
+                                        <ul class="py-2 flex flex-col items-center space-y-2 divide-y-2 divide-gray-100 " aria-labelledby="user-menu-buttn">
+                                            <li>
+                                                <a href="#" class="block font-bold px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">سبد خرید</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block font-bold px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">ثبت نام</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block font-bold px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">ورود</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden md:flex items-center justify-center dark:bg-gray-900">
+                                <div class="flex items-center justify-center md:order-2">
+                                    <button type="button" class="flex ml-5 text-sm rounded-full md:mr-0 " id="user-dropdown" aria-expanded="false" data-dropdown-toggle="user-dropdown-4" data-dropdown-placement="bottom">
+                                      <img id="theme-toggle" class="w-7" src="./../assets/images/avatar/icons8-paint-roller-96.png" alt="user photo">
+                                    </button>
+                                    <!-- Dropdown menu -->
+                                    <div class="z-50 hidden my-5 px-3 py-2 text-sm list-none border bg-gray-50 rounded-lg shadow dark:bg-gray-300 dark:divide-gray-600" id="user-dropdown-4">
+                                        <ul class="py-2 flex flex-col justify-center items-center space-y-2 divide-y-2 divide-gray-900" aria-labelledby="user-menu-buttn">
+                                            <li>
+                                                <img class="w-6 cursor-pointer dark-icon" src="./../assets/images/avatar/icons8-moon-and-stars-90.png" alt="">
+                                            </li>
+                                            <li>
+                                                <img class="w-6 cursor-pointer mt-2 light-icon" src="./../assets/images/avatar/icons8-sun-96.png" alt="">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+
+    <div class="md:hidden z-50 fixed bottom-0 w-full flex justify-center items-center">
+        <nav class="bg-gray-100 w-full dark:bg-gray-900">
+            <div class="mx-auto p-5">
+                <ul class="flex gap-5 justify-center items-center">
+                    <li>
+                        <a href="#" class="mobile-menu">
+                            <i class="fas fa-bars text-2xl dark:text-Primary text-gray-800"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-van-shuttle text-2xl dark:text-Primary text-gray-800"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-house text-2xl dark:bg-Primary text-gray-800 dark:p-3 rounded-3xl"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-searchengin text-2xl dark:text-Primary text-gray-800"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cart-shopping text-2xl dark:text-Primary text-gray-800"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- main slider -->
+    <main class="flex gap-5 flex-col md:flex-row mx-24 justify-between main-container">
+        <div class="swiper swiper-1 shadow-2xl">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="./../assets/images/sliders/main-banner/1672060743-e0EE5Y8ciukUnLM8.png" alt=""></div>
+                <div class="swiper-slide"><img src="./../assets/images/sliders/main-banner/1673359834-GFywcDnnumu4d9Hd.png" alt=""></div>
+                <div class="swiper-slide"><img src="./../assets/images/sliders/main-banner/1673779749-Rs7l7Nt8Znvw4Oc3.png" alt=""></div>
+                <div class="swiper-slide"><img src="./../assets/images/sliders/main-banner/1674114860-NpdXfxcrxonvhRAg.png" alt=""></div>
+                <div class="swiper-slide"><img src="./../assets/images/sliders/main-banner/1674460856-bClbO3FDvmpB28Ap.png" alt=""></div>
+                <div class="swiper-slide"><img src="./../assets/images/sliders/main-banner/1675682043-bZVJS9Z4quHMgCLR.png" alt=""></div>
+
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-scrollbar"></div>
+        </div>
+        <aside class="flex shadow-2xl mt-2 md:mt-0 aside-bar  flex-col gap-3">
+            <img width="100%" class="mx-auto rounded-lg cursor-pointer" src="./../assets/images/sliders/main-banner/ase.png" alt="">
+            <img width="100%" class="mx-auto rounded-lg cursor-pointer" src="./../assets/images/sliders/main-banner/ej.png" alt="">
+        </aside>
+    </main>
+
+    <ul class="flex rounded-lg p-5 gap-3 md:gap-24 shadow-2xl justify-center items-center mt-10 mx-14">
+        <li>
+            <img src="./../assets/images/some icons/1614425362-2BPlFTd9O54X2Bs6.svg" alt="">
+        </li>
+        <li>
+            <img src="./../assets/images/some icons/1617872469-i9Uc4dUKenSJjj77.svg" alt="">
+        </li>
+        <li>
+            <img src="./../assets/images/some icons/1617872635-hVfvRyiQHoJFiakv.svg" alt="">
+        </li>
+        <li>
+            <img src="./../assets/images/some icons/1617872635-VAQtOlnLCHklPhsn.svg" alt="">
+        </li>
+        <li>
+            <img src="./../assets/images/some icons/1617872751-KB6PIc5RD5e7TxFU.svg" alt="">
+        </li>
+        <li>
+            <img src="./../assets/images/some icons/1617872751-rAU2KUy6iVaeJeg3.svg" alt="">
+        </li>
+    </ul>
+
+
+    <ul class="flex mx-14 flex-wrap md:flex-row gap-5 shadow-2xl justify-center items-center mt-10">
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1632903105-zw0yI35VYIgZRvEh.jpg" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1635583921-2TNZongLdOhYq6r3.jpg" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1642509401-6U6p0fxDvzgyZ0Ja.jpg" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1645608648-SR0hBz44ND6vp7ye.png" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1657701876-50ZOi6AtRrRVSfb4.png" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1667389781-faGGSCSVPx2VMph2.svg" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1667389888-MSh15PuCQnVsS6NH.svg" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1667390012-XWeXnlAdt2fRz7A6.svg" alt="">
+        </li>
+        <li>
+            <img src="./../assets/images/brand-logo/1667390502-kSfocZeaDGDUWeuA.svg" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1667390667-MGVK1afsqya5kFv7.svg" alt="">
+        </li>
+        <li class="w-20">
+            <img src="./../assets/images/brand-logo/1667390502-kSfocZeaDGDUWeuA.svg" alt="">
+        </li>
+    </ul>
+
+
+
+    <div class="swiper mx-auto flex justify-center items-center swiper-middle mt-10 shadow-2xl">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./../assets/images/sliders/middle/1671960375-zTZFYDipTeqZoXF0.png" alt=""></div>
+            <div class="swiper-slide"><img src="./../assets/images/sliders/middle/1671960410-OOcQ21RgxvNPx3NI.png" alt=""></div>
+            <div class="swiper-slide"><img src="./../assets/images/sliders/middle/1671960488-hGE7TPWdkYnPccGu.png" alt=""></div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+
+    <!-- case -->
+    <section class="md:text-start p-6 mx-14 shadow-2xl mt-4">
+        <h1 class="md:mr-16 text-center mr-0 mb-7 font-bold inline-block text-white bg-Primary transform md:rotate-6 rotate-0 p-2 rounded-lg">سیستم های اسمبل شده</h1>
+        <ul class="flex flex-wrap gap-10 justify-center items-center">
+            <li class="w-36 cursor-pointer md:hover:text-Primary transform md:hover:scale-125 transition-all duration-200 ease-in-out flex flex-col justify-center items-center">
+                <img src="./../assets/images/case-type/1645021167-YtBpvbdGqtLqROUd.png" alt="">
+                <a href="#" class="dark:text-white">سیستم های گیمینگ</a>
+            </li>
+            <li class="w-36 cursor-pointer md:hover:text-Primary  transform md:hover:scale-125 transition-all duration-200 ease-in-out flex flex-col justify-center items-center">
+                <img src="./../assets/images/case-type/1645021193-kx3mPmi9xYerXoR7.png" alt="">
+                <a href="#" class="dark:text-white">سیستم های رندرینگ</a>
+            </li>
+            <li class="w-36 cursor-pointer md:hover:text-Primary  transform md:hover:scale-125 transition-all duration-200 ease-in-out flex flex-col justify-center items-center">
+                <img src="./../assets/images/case-type/1645021224-1Y5OSjHrbRjbZApT.png" alt="">
+                <a href="#" class="dark:text-white">سیستم های بصرفه</a>
+            </li>
+            <li class="w-36 cursor-pointer md:hover:text-Primary  transform md:hover:scale-125 transition-all duration-200 ease-in-out flex flex-col justify-center items-center">
+                <img src="./../assets/images/case-type/1645021251-Djrh8qT6Lu1CdIqH.png" alt="">
+                <a href="#" class="dark:text-white">سیستم های اداری</a>
+            </li>
+        </ul>
+    </section>
+
+
+    <h1 class="mt-10 text-white bg-Primary p-1  rounded-lg shadow-2xl text-center font-bold text-xl">نظر برخی از کاربران</h1>
+    <section class="flex p-5 justify-center items-center mt-14">
+        <div class="flex justify-center flex-wrap flex-col md:flex-row gap-5">
+            <div class="bg-Primary rounded-lg shadow p-5 w-60">
+                <h5 class="mb-5 text-white">موس گیمینگ گلوریوس Model D (Matte Black)</h5>
+                <p>نزدیک 1 ساله دارم از این موس استفاده میکنم موس بسیار خوش دستیه ,کیفیت ساخت سیم و بدنه بسیار بالایی داره , نورپردازی زیبایی داره.</p>
+                <h6 class="text-end text-white">سپهر صمدی</h6>
+            </div>
+            <div class="bg-Primary rounded-lg shadow p-5 w-60">
+                <h5 class="mb-5 text-white">مادربرد ایسوس TUF GAMING Z690 PLUS D4</h5>
+                <p>سلام، این مادربرد دارای 2 اسلات PCI Express X16 با نسل های 3 و 5 میباشد. لطفا اصلاح کنید. ممنون.</p>
+                <h6 class="text-end text-white mt-5">مهران ابراهیمی</h6>
+            </div>
+            <div class="bg-Primary rounded-lg shadow  p-5 w-60">
+                <h5 class="mb-5 text-white">پردازنده بدون باکس ای ام دی Ryzen 5 3600</h5>
+                <p>همچنان پردازنده خوب و قابل اعتمادیه</p>
+                <h6 class="text-end text-white mt-5">علی حسینی</h6>
+            </div>
+            <div class="bg-Primary rounded-lg shadow p-5 w-60">
+                <h5 class="mb-5 text-white">هدست گیمینگ ریزر Kraken X Lite</h5>
+                <p>بعد دوسال استفاده این نکاتو دارم میگم . جنس بدنش کاملا از پلاستیکه و بعد شش ماه شروع میکنه به ترک خوردن و شکست . من هرجاش میشکست چسب میزدم ولی دوباره...</p>
+                <h6 class="text-end text-white mt-5">متین حیدتژاد</h6>
+                </li>
+            </div>
+
+
+    </section>
+
+
+    <section class="conten flex flex-wrap justify-center flex-col md:flex-row gap-10 mt-14">
+        <article>
+            <h1 class="w-80 md\:w-96 p-4 text-Primary font-bold shadow-md dark:bg-Primary rounded-xl mb-5 dark:text-white">جدیدترین مقالات</h1>
+            <ul class="space-y-2 ">
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md">
+                    10 برنامه ای که باتری گوشی را خالی می‌کنند
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md">
+                    بررسی کیس ایسوس مدل ROG Strix Helios GX601
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md">
+                    چالش های کسب و کارهای آنلاین در پلتفرم های ایرانی
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md">
+                    قیمت و مشخصات فنی کنسول دستی Razer Edge
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md">
+                    آموزش اشتراک گذاری فایل ها با ایردراپ (AirDrop)
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md">
+                    چطور بفهمیم کامپیوتر یا لپتاپ هک ما شده است؟
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md">
+                    قیمت و مشخصات فنی کارت گرافیک RTX 4090
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md">
+                    نسخه 16 گیگابایتی کارت گرافیک RTX 3070
+                </li>
+            </ul>
+        </article>
+        <article class="">
+            <h1 class="w-80 p-4 text-Primary font-bold dark:text-white dark:bg-Primary rounded-xl mb-5  dark:border dark:border-Primary shadow-md ">جدیدترین ارسال‌های انجمن</h1>
+            <ul class="space-y-2 ">
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    کارت گرافیک palit 1660super
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    هارد ریفر
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    مانیتور LG 20MP38HB IPS - پاور گرین +GP3w-80A-SP
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    مشاوره برا خرید بین سامسونگ a13 , a23 4g , a23 5g
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    وصل نشدن نرم افزار استیم به اینترنت
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    کرش کردن سیستم هنگام بازی
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    مشاوره جهت خرید قطعات کامپیوتر
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    قطعات کارکرده و درحد متنوع (تاپیک اپدیت میشود)
+                </li>
+                <li class="w-80 p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    وصل نشدن نرم افزار استیم به اینترنت
+                </li>
+            </ul>
+        </article>
+        <article>
+            <h1 class="w-80 p-4 text-Primary font-bold dark:text-white  dark:bg-Primary rounded-xl mb-5 dark:border dark:border-Primary shadow-md ">جدیدترین ویدیو‌ها</h1>
+            <ul class="space-y-2 ">
+                <li class="w-80 flex items-center p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    <img class="w-20 ml-4 " src="./../assets/images/footer-img/50812571-2275__1197.jpg " alt=" ">
+                    <span>همه چیز درباره پاور</span>
+                </li>
+                <li class="w-80 flex  items-center p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    <img class="w-20 ml-4 " src="./../assets/images/footer-img/50564392-6984__8119.jpg " alt=" ">
+                    <span>آموزش سخت افزار کامپیوتر: کارت گرافیک چیست؟ تفاوت مدل‌های مختلف کارت گرافیک</span>
+                </li>
+                <li class="w-80 flex items-center p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    <img class="w-20 ml-4 " src="./../assets/images/footer-img/50547342-6243__6045.jpg " alt=" ">
+                    <span>معرفی کیس گیمینگ 300 میلیونی + بنچمارک</span>
+                </li>
+                <li class="w-80 flex items-center p-4 cursor-pointer dark:text-white rounded-xl dark:border dark:border-Primary shadow-md ">
+                    <img class="w-20 ml-4 " src="./../assets/images/footer-img/50472836-9840__7992.jpg " alt=" ">
+                    <span>آموزش سخت افزار کامپیوتر: رم چیست؟ راهنمای خرید انواع رم دسکتاپ</span>
+                </li>
+            </ul>
+        </article>
+    </section>
+
+
+
+
+    <section class="flex md:flex-row flex-col gap-10 md:bg-gray-50 p-5 justify-evenly mx-32 items-center mt-12 md:shadow-2xl dark:bg-transparent">
+
+        <div class="text-xl font-bold dark:text-Primary w-72">
+            عضویت در خبرنامه
+        </div>
+        <div class="w-full flex justify-center items-center">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <i class="fas fa-envelope text-Primary"></i>
+                </div>
+                <input type="text" id="email-address-icon" class="bg-gray-50 border outline-none focus:border-Primary border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-Primary focus:border-pr block w-52 md:w-72 p-3  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-Primary dark:focus:border-Primary"
+                    placeholder="ایمیل خود را وارد کنید">
+            </div>
+            <button class="bg-Primary p-2 mr-2 rounded-xl text-white">ارسال</button>
+        </div>
+        <div class="shadow-2xl w-full gap-5 flex justify-center items-center">
+            <i class="fab fa-instagram text-3xl text-indigo-500"></i>
+            <i class="fab fa-twitter text-3xl text-sky-500"></i>
+            <i class="fab fa-telegram text-3xl text-yellow-400"></i>
+            <i class="fab fa-linkedin text-3xl text-sky-700"></i>
+        </div>
+    </section>
+
+
+    <footer class="flex flex-col md:flex-row  mx-24 p-7 bg-gray-50 shadow-2xl dark:bg-transparent md:justify-evenly items-center mt-12">
+        <div class="mb-10 md:mb-0">
+            <h3 class="font-bold text-xl dark:text-white">آدرس فروشگاه</h3>
+            <p class="mt-3 dark:text-white">
+                <i class="fas fa-location-dot text-Primary"></i> شیراز,خیابان ملاصدرا,پاساژ ملاصدرا,طبقه اول
+            </p>
+            <p class="mt-2 dark:text-white">
+                <i class="fas fa-envelope-open ml-1 text-Primary"></i>
+                <strong>کد پستی</strong> 7123456789
+            </p>
+        </div>
+        <div class="mb-5 md:mb-0">
+            <h3 class="font-bold text-xl dark:text-white mb-3">شماره‌های تماس
+                <span class="text-sm text-Primary">( ساعات کاری از ۹:۳۰ صبح الی ۱۸ و پنجشنبه از ۹:۳۰ تا ۱۴ )</span>
+            </h3>
+            <p class="mt-3 dark:text-white">
+                <i class="fas fa-phone text-Primary "></i> پشتیبانی: 071123456
+            </p>
+            <p class="mt-3 dark:text-white">
+                <i class="fas fa-phone text-Primary"></i> پیشنهادات و انتقادات: 09991230302
+            </p>
+        </div>
+        <div class="mt-10 md:mt-0">
+            <img src="./../assets/images/1637400453-pkRnlmp5KWhgkdtq.png" alt="">
+        </div>
+    </footer>
+
+    <section class="shadow-2xl bg-gray-50 mt-5 p-5 dark:bg-transparent dark:text-white">
+        <ul class="hidden gap-5 md:gap-0 md:flex justify-evenly items-center cursor-pointer">
+            <li>خانه</li>
+            <li>چرا اِچ پی سی</li>
+            <li>تالار گفتمان</li>
+            <li>تماس با‌ ما</li>
+            <li>راهنمای خرید و مقررات</li>
+            <li>شرایط گارانتی</li>
+            <li>اخبار</li>
+            <li>درباره ما</li>
+        </ul>
+    </section>
+
+    <p class="mt-5 text-gray-600 text-center px-7 md:px-0">
+        حق نشر تمامی حقوق برای اِچ پی سی محفوظ می‌باشد و هرگونه کپی‌برداری مستلزم کسب اجازۀ کتبی بوده و پیگرد قانونی خواهد داشت.
+    </p>
+
+    <p class="text-center mt-5 mb-20 md:mb-2 bg-gray-50 w-72 mx-auto p-2 rounded-lg shadow-2xl dark:bg-transparent dark:text-gray-400">made with <span class="text-Primary">❤</span> by HadiOryaniPr</p>
+
+
+    <!-- online chat-->
+    <section class="online-chat">
+        <button id="support-chat-btn" title="Hpc support" class="fixed rounded-full shadow-2xl z-50 right-5 md:right-10 bottom-24 md:bottom-10">
+            <i class="fab fa-hackerrank text-6xl text-gray-900 dark:text-Primary"></i>
+        </button>
+        <div class="chat-wrapper hidden bg-gray-100 dark:bg-gray-900 shadow-2xl rounded-md">
+            <div class="chat-tem">
+                <header class="flex chat-tem-header justify-center items-center py-5 border-b border-Primary">
+                    <h1 class="text-xl text-Primary">پشتیبانی</h1>
+                    <i class="fab fa-hackerrank text-4xl text-Primary"></i>
+                </header>
+                <div class="chat-container flex items-center">
+                    <img class="w-10 rounded-full mr-3" src="./../assets/images/avatar/HadiOryaniPr-Hpc contact avatar.png" alt="">
+                    <p class="mr-2 text-sm w-48 dark:text-white bg-gray-200 rounded-lg dark:bg-transparent p-2">سلام وقتتون بخیر چطور میتونم کمکتون کنم؟</p>
+                </div>
+                <div class="absolute bottom-0 border-t w-full border-Primary p-2 flex items-center justify-evenly gap-2">
+                    <input type="text" class="w-80 rounded-lg dark:bg-gray-900 dark:text-gray-200 chat-input">
+                    <button class="bg-Primary py-2 px-4 font-bold text-white rounded-lg">ارسال</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js "></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 1500,
+                disableOnInteraction: false,
+            },
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+
+        });
+    </script>
+
+
+    <script src="./js/app.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+</body>
+
+</html>

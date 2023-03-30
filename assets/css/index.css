@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: Nahid;
+    src: url('./../../src/fonts/Nahid.eot');
+    src: url('./../../src/fonts/Nahid.eot?#iefix') format('embedded-opentype'), url('./../../src/fonts/Nahid.woff') format('woff'), url('./../../src/fonts/Nahid.ttf') format('truetype');
+    font-weight: normal;
+}
